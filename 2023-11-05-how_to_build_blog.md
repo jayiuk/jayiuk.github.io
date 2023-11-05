@@ -1,4 +1,9 @@
+---
+layout: Post
+title: "블로그 만드는 법"
+---
 # 블로그 만드는 법
+
 ## 목차
 1. github에 레포지토리 만들기
 2. Jekyll 설치 및 초기 설정
@@ -45,4 +50,23 @@ git push origin main
 [Jekyll Themes](http://jekyllthemes.org/)에 가서 테마를 고름
 해당 테마의 github나 웹페이지로 가서 사용방법 확인
 테마마다 방법이 서로 다름
+제가 선택한 WhatATheme 테마의 경우
+1. [Repository](https://github.com/thedevslot/WhatATheme/)를 포크합니다
+2.  
+```bash
+git clone https://github.com/thedevslot/WhatATheme.git
+```
+을 통해 다운로드 합니다
+3. 
+```bash
+bundle install
+```
+디렉토리 안에서 위의 명령어를 실행합니다
+4. 
+```bash
+bundle exec jekyll s
+```
+를 통해 WhatATheme을 호스트합니다.
 
+이 방법을 통해 블로그에 테마를 적용시켰습니다.
+이 테마를 사용하실 분은 참고하시면 됩니다.

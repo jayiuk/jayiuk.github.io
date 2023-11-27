@@ -12,7 +12,7 @@ collections:
     category:
         output: true
     authors:
-        output: false
+        output: true
 
 defaults:
   -

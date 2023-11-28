@@ -28,3 +28,6 @@ module Jekyll
 end
   
 Liquid::Template.register_tag('button', Jekyll::ButtonTagBlock)
+{% button red|https://www.example.com/|/assets/img/icons/cog.svg %}
+Download binary
+{% endbutton %}

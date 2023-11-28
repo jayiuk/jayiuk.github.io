@@ -14,7 +14,7 @@ module Jekyll
             icon = input_split[2].strip
 
             text = super
-            "<div class='sx-button'><a href='#{link}' class='sx-button__content #{theme}'><img src='#{icon}'/>#{text}</a></div>"
+            <div class='sx-button'><a href='#{link}' class='sx-button__content theme'><img src=/assets/img/icons/example_icon.svg/>#{text}</a></div>
         end
 
         def split_params(params)

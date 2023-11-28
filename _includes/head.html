@@ -1,49 +1,27 @@
-<link rel="stylesheet" href="{{ site.url }}/assets/fonts/fonts.css"/>
-<link rel="stylesheet" href="{{ site.url }}/assets/style.css"/>
-<link rel="stylesheet" href="{{ site.url }}/assets/js/lity.min.css"/>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% if page.title == "Home" %}
+    <meta name="description" content="{{ site.description }}">
+  {% endif %}
 
-{% if site.favicon != nil %}
-<link rel='shortcut icon' type='image/x-icon' href='{{ site.favicon }}' />
-{% endif %}
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta property="og:site_name" content="{{ site.title }}" />
-<meta 
-    property="og:title"
-    content="
-        {% if page.title != nil %}
-            {{page.title}}
-        {% else %}
-            {{site.title}}
-        {% endif %}
-    " 
-/>
-{% if page.og_description != nil %}
-    <meta property="og:description" content="{{ page.og_description }}" />
-{% endif %}
-<meta property="og:url" content="{{ site.url }}/{{ page.url }}" />
-{% if page.og_type != nil %}
-    <meta property="og:type" content="{{ page.og_type }}" />
-{% else %}
-    <meta property="og:type" content="article" />
-{% endif %}
-{% if page.og_image != nil %}
-    <meta property="og:image" content="{{ site.url }}/{{ page.og_image }}" />
-    <meta property="og:image:secure_url" content="{{ site.url }}/{{ page.og_image }}" />
-{% endif %}
-{% if page.fb_app_id != nil %}
-    <meta property="fb:app_id" content="{{ page.fb_app_id }}" />
-{% else if site.fb_app_id != nil %}
-    <meta property="fb:app_id" content="{{ site.fb_app_id }}" />
-{% endif %}
-
-
-<title>
-    {% if page.title != nil %}
-        {{page.title}}
+  <title>
+    {% if page.title == "Home" %}
+      {{ site.title }}
     {% else %}
-        {{site.title}}
+      {{ page.title }} &middot; {{ site.title }}
     {% endif %}
-</title>
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/favicon-32x32.png" | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/favicon-16x16.png" | relative_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/apple-touch-icon.png" | relative_url }}">
+
+  <!-- RSS -->
+  {% feed_meta %}
+</head>

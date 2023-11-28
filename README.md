@@ -1,240 +1,133 @@
-[![Blog Demo](https://img.shields.io/badge/demo-golasblog-blue?style=flat-square)](https://golas.blog/)
-[![Generic Demo](https://img.shields.io/badge/demo-generic-green?style=flat-square)](https://simplex-demo.golas.systems/)
+# Rain
 
-The source of the generic demo is available here: https://github.com/andreondra/simplex-demo
+Rain is a simple and clean Jekyll theme with focus on content. It's a fork of [Tale theme](https://github.com/chesterhow/tale) with additional customizations.
 
-# <img src="assets/img/icons/simplex_logo.svg" alt="Simplex" height="50"/>
+![](https://github.com/inelaah/rain/blob/master/images/screenshot.png)
 
-A *simple* yet neat blogging theme. Developed for the [golas blog](https://golas.blog/) project.
+## Features
+- Compatible with GitHub Pages
+- Responsive design
+- Syntax highlighting
+- Markdown and HTML text formatting
+- Pagination of posts
+- Related articles section
+- Links to social media
 
 
-## 👓 Preview
-![Preview](preview.gif)
+## Getting Started
 
-## 💎 Features
-### Responsive
-![Responsivity preview](previewResponsive.gif)
+You will need to install Jekyll on your machine. Installation depends on your operating system and it is explained [here](https://jekyllrb.com/docs/installation/).
 
-### Dark mode
-![Dark mode preview](previewDark.gif)
+Then create a new directory and clone this repository:
 
-### Buttons
-![Buttons preview](previewButtons.png)
-
-### Lity Lightbox 
-Supports images, videos, iFrames and more. See below for syntax.
-
-### Open Graph tags
-
-## ℹ Installation
-
-Add this line to your Jekyll site's `Gemfile`:
-
-```ruby
-gem "jekyll-theme-simplex"
+```bash
+mkdir rain
+cd rain
+git clone https://github.com/inelaah/rain.git
 ```
 
-And add this line to your Jekyll site's `_config.yml`:
+Install all dependencies:
 
-```yaml
-theme: jekyll-theme-simplex
+```bash
+bundle install
 ```
 
-And then execute:
+## Site Configuration
 
-    $ bundle
+There is a configuration file `_config.yml` in root directory. You should overwrite it to fit to your needs.
 
-Or install it yourself as:
+An example of `_config.yml` looks like this:
 
-    $ gem install jekyll-theme-simplex
+```bash
+# Site settings
+title:          Rain
+description:    "Rain is a simple and clean Jekyll theme with focus on content."
+url:            https://github.com/inelaah/rain
 
-## ✔ Usage
+# Author
+author:
+  name:         Inela Avdic Hukic
+  email:        inelaah@gmail.com
+  url:          https://inelaah.com
 
-### ⚙ Setting up the template
-Add following to the `_config.yml`:
-```yaml
-logo_img: /assets/img/icons/golasblog_logo.svg #Absolute path to the logo. If not specified, the title will be displayed instead.
-copyright: © Golasowski 2020 #Your copyright.
+# Build settings
+markdown:       kramdown
 
-collections:
-    category:
-        output: true
-    authors:
-        output: false
+# Assets
+sass:
+  sass_dir:     _sass
+  style:        compressed
 
-defaults:
-  -
-    scope:
-      path: ""
-      type: category
-    values:
-      layout: "category"
+# Gems
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  # - jemoji #Uncomment this to allow emoji in your post
+
+# Permalinks
+permalink:      /:year-:month-:day/:title
+paginate:       5
+
+# Related posts settings
+related_posts_section:
+  max_count:        5
+  min_common_tags:  2
+
+# Links to social media
+social:
+  email: inelaah@gmail.com
+  github: https://github.com/inelaah
+  twitter: https://twitter.com
+  linkedin: https://ba.linkedin.com/in/inela-avdic-hukic-322354131
 ```
 
-### ✨ Defining categories
-Create a `_category` folder in the root directory of the blog. Create a `.md` file for every category with the contents:
-```
----
-category: [design] #Category ID.
-hue: var(--c-themeHueOrange) #Category hue. See note [1].
-title: Design #Category title.
-description: Lorem ipsum dolor sit amet.
----
-```
+## Favicons
 
-### 🤵 Defining authors
-Create a `_authors` folder in the root directory. Create a `.md` file for every author with the contents:
-```
----
-nick: golas #Author's nick.
-full_name: Andrew Golasowski #Author's full name.
-photo_dir: assets/img/authors/golas.png #Path to the author's pic.
----
-```
+It is recommended to put your own favicons:
 
-### 📰 Defining the menu
-Create a `_data` folder in the root directory. In the folder, create a `nav.yaml` file. Here's an example:
-```yaml
-- title: Programming #Menu item title.
-  url: category/programming.html #Menu item url.
-  icon: assets/img/icons/programming.svg #Menu item icon.
-  hue: "var(--c-themeHueRed)" #Menu item hue - see note [1].
-  subnav: #Subnav. See note [2].
-      - title: C++ #Submenu item title.
-        url: category/cpp.html #Submenu item url.
-        hue: "var(--c-themeHueOrange)" #Submenu item hue.
-        subnav: #Another subnav
-            - title: Libraries
-              url: libs.html
-              hue: "var(--c-themeHueBlue)"
-- title: Design
-  url: category/design.html
-  icon: assets/img/icons/design.svg
-  hue: "var(--c-themeHueRed)"
-```
-#### Pro tip:
-Use color icons with the same hue as the menu items. Icons will be black and on hover the color will be shown.
+- `apple-touch-icon.png` (180x180)
+- `favicon-32x32.png` (32x32)
+- `favicon-16x16.png` (16x16)
+- `mstile-150x150.png` (150x150)
+- `android-chrome-192x192.png` (192x192)
+- `android-chrome-512x512.png` (512x512)
 
-### ✒ Creating posts
-Posts are created in the `_posts` directory. Following front matter attributes are supported:
+in `/assets` directory. They're easily created via [Favicon Generator](https://realfavicongenerator.net/).
+
+
+## Related Articles
+
+Related articles section is based on article tags. For every post that you want to have this section you should define tags.
+To include related articles in the bottom of the content you should define `related_posts_section` property in configuration file.
+It contains two fields: `max_count` and `min_common_tags`:
+- `max_count` represents the maximum number of related articles shown on a single article.
+- `min_common_tags` represents the minimum number of common tags for two articles to become related articles.
+
+## Links to social media
+
+To include links to social media in the top right corner of your page you need to define `social` property.
+It contains email, GitHub, Twitter and LinkedIn fields. You can leave out any of these if you don't want them to show up on your page.
+
+## Customizing Rain theme
+
+If you want to customize Rain theme you can fork this project and make some changes. If you just want to change the style then you can find Sass files in `_sass/rain` directory.
+
+## Adding your own posts
+
+You can see an example of post structure in `_posts` directory. After you clone this project you should clean the `_posts` directory and add your own posts.
+
+## Build and serve
+
 ```
----
-layout: post #Do not change.
-category: [programming, testing] #One, more categories or no at all.
-title: "Lorem ipsum" #Article title.
-author: andy #Author's nick.
-nextPart: _posts/2021-01-30-example.md #Next part.
-prevPart: _posts/2021-01-30-example.md #Previous part.
-og_image: assets/example.png #Open Graph preview image.
-og_description: "Example description." #Open Graph description.
-fb_app_id: example
----
-Your markdown content here.
+bundle exec jekyll serve
 ```
 
-### ⚡ Syntax highlighting
-The theme uses Pygments CSS created by [@richleland](https://github.com/richleland). If you want to modify the highlighting styles, just download different CSS or create your own - see [Jekyll docs](https://jekyllrb.com/docs/liquid/tags/#stylesheets-for-syntax-highlighting).
+Head over to http://127.0.0.1:4000/ to see your page.
 
-Note - `@media` is used to manage different styles for light and dark web browser mode. See `_variables.scss` file for details.
+## License
 
-### 📷 Inserting pictures
-Classic Markdown syntax is supported. However, to be able to use the lightbox feature, you have to use HTML syntax. Minimal example:
-```html
-<a href="/assets/example.jpg" data-lity>
-  <img src="/assets/example_thumbnail.jpg"/>
-</a>
-```
+Rain is licensed under the MIT license. Check the [LICENSE](LICENSE.md) file for details.
 
-To provide image description use this syntax:
-```html
-<div class="sx-picture">
-  <a href="/assets/example.jpg" data-lity>
-    <img src="/assets/example_thumbnail.jpg"/>
-  </a>
-  <span class="sx-subtitle">My picture description.</span>
-</div>
-```
+## Author
 
-**Do not forget the `data-lity` attribute.**
-
-#### ↔ Centering
-To center pictures, put the code inside a `div` with `sx-center` class like this:
-```html
-<div markdown=1 class="sx-center">
-  ![My picture](/assets/example.jpg)
-</div>
-```
-
-### 🔘 Buttons
-Buttons can be inserted with the following syntax. Just replace `theme` with `red`, `green`, `blue`, `orange`, `purple` or `brown`, specify the target link in `href` attribute and the icon in `src` attribute.
-```html
-<div class='sx-button'>
-  <a href='https://your.link.here.example.com/' class='sx-button__content theme'>
-    <img src='/assets/img/icons/example_icon.svg'/>#{text}
-  </a>
-</div>
-```
-
-Markdown attribute can be omitted if you don't use markdown inside the block (e.g. by using the lightbox syntax).
-
-### ℹ Notes
-[1] Hue can be either one of the predefined colors or any of the CSS `color` attribute supported values (hex, rgb...).
-
-[2] Submenus are generated recursively, so any menu (and submenu) can have its own submenu.
-
-#### Predefined colors
-You can use following predefined colors:
-```scss
---c-themePrimaryLight: #EFEFEF;
---c-themePrimaryDark:  #101010;
---c-themeSecondaryLight: #DADADA;
---c-themeSecondaryDark: #252525;
---c-themeTerniaryLight: #AEAEAE;
---c-themeTerniaryDark: #515151;
---c-themeQuaternaryLight: #919191;
---c-themeQuaternaryDark: #888888;
-
---c-themeHueRed: #C02717;
---c-themeHueGreen: #8EA604;
---c-themeHueBlue: #2E86AB;
---c-themeHueOrange: #E59500;
---c-themeHuePurple: #9F00CE;
---c-themeHueBrown: #230007;
-```
-These colors are CSS variables, usage: `var(--var-name)`
-
-## Add-ons
-Add-ons are distributed as Jekyll plugins. Just download any desired `.rb` file from the repository `_plugin` folder and put it in your `_plugin` folder.
-
-### Buttons (button.rb)
-Adds a tag to simplify insertion of buttons:
-```
-{% button red|https://www.example.com/|/assets/img/icons/cog.svg %}
-Download binary
-{% endbutton %}
-```
-
-## 🤝 Contributing
- 
-Bug reports and pull requests are welcome on [GitHub](https://github.com/andreondra/jekyll-theme-simplex).
-
-## ⚙ Development
-
-To set up your environment to develop this theme, run `bundle install`.
-
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
-If you recieve an error stating, `"require': cannot load such file -- webrick (LoadError)'` Simply run `bundle add webrick` and this will install the dependencies for running the Jekyll and then you may repeat Step 2!
-
-When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
-To add a custom directory to your theme-gem, please edit the regexp in `jekyll-theme-simplex.gemspec` accordingly.
-
-## Credits
-Includes icons by [uxwing](https://uxwing.com/).
-
-The lightbox feature is provided by [Lity](https://github.com/jsor/lity) licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
-Uses [jQuery](https://github.com/jquery/jquery) JavaScript plugin licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
-## ⚖ License
-© Ondrej Golasowski. The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
+[Inela Avdic Hukic](https://github.com/inelaah)

@@ -5,6 +5,8 @@ favicon: /assets/favicon.ico
 description: description
 global_tags: jekyll theme simplex golasblog responsive html5
 copyright: © Jeon Young-uk 2023
+url: "https://jayiuk.github.io/"
+baseurl: ""
 
 sass:
     style: compressed

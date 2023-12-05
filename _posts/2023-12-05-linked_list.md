@@ -1,5 +1,5 @@
 layout : post
-author : Jeon Younguk
+author : jayiuk
 tags : ["linked_list"]
 
 # 연결 리스트

@@ -20,7 +20,7 @@ tags : ["blog"]
  2. analytics 관련 설정을 찾아 적절히 수정(보통 추적 ID를 넣으면 됩니다)
  3. 관련 설정이 없는 경우 직접 추가해야 합니다. 보통 `_includes` 폴더 내에 `head.html` 파일을 사용합니다.
  4. 추적 코드 스니펫을 `</head>`태그 바로 앞에 붙여줍니다
- ```html
+ ```
  {% if site.google_analytics %}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
 <script>

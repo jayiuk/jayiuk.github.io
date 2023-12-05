@@ -1,6 +1,6 @@
 layout : post
 author : jayiuk
-tags : ["utterance"]
+tags : ["blog"]
 
 # Utterance로 댓글 기능 구현
 

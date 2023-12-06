@@ -15,6 +15,8 @@ tags : ["blog"]
  1. [구글애널리틱스](https://analytics.google.com)으로 가 계정 생성
  2. 새 웹사이트에 대한 속성 생성
  3. 추적 ID를 받음
+
+
 ### Jekyll 블로그에 코드 추가
  1. `_config`파일을 찾습니다.
  2. analytics 관련 설정을 찾아 적절히 수정(보통 추적 ID를 넣으면 됩니다)

@@ -1,38 +1,58 @@
-# Site settings
-title:          jayiuk
-description:    "Rain is a simple and clean Jekyll theme with focus on content."
-url:            https://github.com/jayiuk/jayiuk.github.io
+title:            Jayiuk Blog
+description:      "혼자 공부하는 블로그"
+copyright:        jayiuk
+url: https://jayiuk.io # add your custom site url (format: https://example.com)
 
-# Author
-author:
-  name:         Jeon Younguk
-  email:        jayiuk987@gmail.com
-  url:          https://jayiuk.github.io/
 
-# Build settings
-markdown:       kramdown
-
-# Assets
-sass:
-  sass_dir:     _sass
-  style:        compressed
-
-# Gems
-plugins:
-  - jekyll-feed
+future:      false  # publish future dated posts --  true, false (default)
+highlighter: rouge
+markdown:    kramdown
+gems:
+  - jekyll-sitemap
   - jekyll-paginate
-  # - jemoji #Uncomment this to allow emoji in your post
+  - jekyll-gist
+  - jekyll-feed
 
-# Permalinks
-permalink:      /:year-:month-:day/:title
-paginate:       10
+sass:
+  sass_dir: _sass
+  style: compressed
 
-# Related posts settings
-related_posts_section:
-  max_count:        10
-  min_common_tags:  2
+permalink: /:categories/:year-:month-:day/:title.html
 
-# Links to social media
-social:
-  email: jayiuk987@gmail.com
-  github: https://github.com/jayiuk
+# Amount of post to show on home page
+paginate: 10
+
+#kramdown:
+#  input: GFM
+#  auto_ids: true
+#  footnote_nr: 1
+#  entity_output: as_char
+#  toc_levels: 1..6
+#  enable_coderay: false
+
+include:
+  - .htaccess
+
+exclude:
+  - "*.less"
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - CHANGELOG
+  - Capfile
+  - Gemfile
+  - Gruntfile.js
+  - LICENSE
+  - README
+  - Rakefile
+  - config
+  - gulpfile.js
+  - lib
+  - log
+  - node_modules
+  - package.json
+  - spec
+  - tmp

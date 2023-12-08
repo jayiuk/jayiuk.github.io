@@ -1,7 +1,7 @@
 title:            Jayiuk Blog
 description:      "혼자 공부하는 블로그"
 copyright:        jayiuk
-url: https://jayiuk.io # add your custom site url (format: https://example.com)
+url: https://jayiuk.github.io # add your custom site url (format: https://example.com)
 
 
 future:      false  # publish future dated posts --  true, false (default)

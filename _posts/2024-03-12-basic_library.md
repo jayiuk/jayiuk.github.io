@@ -1,3 +1,12 @@
+---
+layout : post
+categories : python, project
+title : 파이썬 표준 라이브러리
+tags : [python, project]
+date-string : March 12, 2024
+---
+
+
 # 파이썬 표준 라이브러리
 
 ## encoding, decoding

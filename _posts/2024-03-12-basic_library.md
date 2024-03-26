@@ -20,14 +20,17 @@ b = a.encode('utf-8')
 type(b)
 print(b)
 ```
+
 ```python
 a = '한글'
 b = a.encode('utf-8')
 print(b)
 b.decode('utf-8')
 ```
+
  - utf로 인코딩, 아스키로 디코딩은 안됨
  - 기호, 이모지 출력 가능
+
 ```python
 print("Learning : ", "\U0001F40D)
 ```

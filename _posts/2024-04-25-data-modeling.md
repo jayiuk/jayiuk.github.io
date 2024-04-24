@@ -1,4 +1,5 @@
 ---
+published : true
 layout : post
 categories : DB, sql
 title : 데이터 모델링

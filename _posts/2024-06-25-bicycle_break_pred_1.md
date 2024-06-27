@@ -30,7 +30,7 @@
 - 없는걸 확인 후 상관계수 확인
   - 이용시간, 이동거리, 이용횟수, 고장횟수 간의 상관계수가 기본적으로 선형이 나와야 그 다음으로 진행 가능
 
-![결과](./images/2024-06-25/bicycle_corr.png)
+![bicycle_corr](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/5f7c5d7d-f8fc-4f3c-867a-757c6b8ee3d7)
 - 이용시간, 이동거리, 이용횟수 와 고장횟수 간의 상관관계는 각각 0.78, 0.78, 0.87이 나와 어느정도 양의 관계가 있다고 판단
 
 ### 라벨링
@@ -39,3 +39,18 @@
 - 사이킷런의 KMeans를 사용해 클러스터링
   - 비지도 학습이고, 비슷한 특성을 지닌 데이터끼리 k개의 군집을 만들기 때문에 이번 프로젝트에 적합하다고 판단
   - kmeans로 클러스터링 한 후 결과를 시각화한 후 A, B, C, D로 나눌 예정
+
+### 시각화 결과
+![bbc_clustering_viz_sum](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/67a0be31-5eb3-4a38-93d9-f09638dd5eaa)
+![bbc_clustering_viz_mean](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/4a667727-896b-4a60-9109-6a648616b1f6)
+![bbc_clustering_viz_median](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/7291e85c-666b-49b8-9481-9b6695a64dee)
+![bbc_clustering_viz_max](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/9802a91a-c5c6-43f6-8e7b-d6ff7fff3e34)
+
+- 위의 사진들은 클러스터링을 한 후 각 그룹별로 시각화한 모습이다
+- 순서대로 총합, 평균, 중앙값, 최댓값을 대푯값으로 한 후 시각화한 것이다
+- 모두 0, 3, 1, 2의 순서로 높은 걸 알 수 있다
+
+![bbc_clustering_viz_break](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/34e752d8-1fbe-4f7d-8303-3160eaa51f43)
+- 위 사진은 고장 횟수를 시각화한 결과다
+- 위 결과 역시 0, 3, 1, 2의 순서로 나타난다
+- 즉 위험도는 0, 3, 1, 2의 순서로 나타내면 될 것이다

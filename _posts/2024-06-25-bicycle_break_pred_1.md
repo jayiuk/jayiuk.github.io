@@ -1,3 +1,12 @@
+---
+published : true
+layout : post
+categories : ML, AI, project
+title : 따릉이 고장 예측 구현 part.1
+tags : [ML, project]
+date-string : June 25, 2024
+---
+
 # 따릉이 고장 예측 모델 구현(1) - 기획 및 분석 단계
 
 ## 기획 배경

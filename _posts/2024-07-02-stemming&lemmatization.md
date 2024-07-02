@@ -25,3 +25,20 @@ date-string : July 02, 2024
 
 ### 형태학적 파싱
 - 단어를 어간과 접사로 분리하는 작업
+
+### 표제어 추출 예제 코드
+
+```python
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+out = [lemmatizer.lemmatize(word) for word in words]
+```
+
+- 표제어 추출을 했을 경우 단어의 형태가 적절히 보존됨
+- 표제어 추출기가 본래 단어의 품사를 모를 경우 정확한 결과가 안나옴
+
+## 어간 추출(stemming)
+- 어간(stem)을 추출하는 작업
+- 어간 추출 후 나오는 단어는 사전에 존재하지 않는 단어일 수 있음
+  - 이 작업은 어미를 어림짐작해 자르는 과정일 수 있기 때문
+

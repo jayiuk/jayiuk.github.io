@@ -2,7 +2,7 @@
 published : true
 layout : post
 categories : NLP, AI
-title : 텍스트 전처리
+title : 토큰화
 tags : [NLP, AI]
 date-string : May 16, 2024
 ---
@@ -42,7 +42,24 @@ date-string : May 16, 2024
 - 하지만 꼭 그런 것만은 아님
   - 예를들어 문장에 Ph.D.가 들어가있는 경우 마침표가 문장의 끝을 나타내는 기호가 아님
   - 이 경우 마침표가 문장의 끝의 기준이 된다면 문장 토큰화가 제대로 안됨
-  - 
+
+## 한국어에서의 토큰화
+- 영어의 경우 아주 일부의 예외처리만 한 후 띄어쓰기 기준으로 단어 토큰화 가능
+- 한국어는 어절을 기준으로 토큰화할 시 부정확해지는 정도가 영어보다 큼
+  - 조사의 존재
+    - 조사의 존재로 서로 다른 단어로 분류될 수 있음
+    - 조사를 제거해줘야함
+- 영어에 비해 띄어쓰기가 어려움
+  - 띄어쓰기가 잘 지켜지는 경우가 많지 않다
+- 형태소를 기준으로 토큰화를 해줘야함
+
+## 품사태깅
+- 품사에 따라 의미가 달라지는 경우 존재
+```python
+from nltk.tag import pos_tag #nltk에서 품사 태깅
+from konlpy.tag import Okt
+from konlpy.tag import Kkma #konlpy에서 품사 태깅
+```
 
 
 

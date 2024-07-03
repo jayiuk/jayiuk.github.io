@@ -40,7 +40,7 @@ $$X =
   \end{pmatrix}$$
 
 - x는 4차원 열벡터, y는 2차원 열벡터, z는 4차원 행벡터
-- $$x \in R^4$$\,$$y \in R^2$$
+- $$x \in R^4$$ \, $$y \in R^2$$
   - 이런 식으로 나타낼 수 있다
 - x와 z는 엄밀히 다른 벡터
   - 방향이 다르기 때문
@@ -83,3 +83,118 @@ colv = np.array([[1], [2], [3]]) #열
 - 벡터의 기하학적 해석 : 특정 길이(크기)와 방향(각도)을 가진 직선
   - 벡터의 두 점 : 꼬리(시작하는 곳), 머리(끝나는 곳)이라 부름
   - 머리는 화살표가 달려 있다
+- 기준 위치 : 원점에서 시작한 벡터
+
+## 벡터 연산
+### 덧셈
+- 두 벡터의 덧셈은 서로 대응되는 원소끼리 더함
+$$\begin {pmatrix}  
+  4 \\               
+  5 \\              
+  6                  
+  \end {pmatrix} +\begin{pmatrix}
+                   10 \\
+                   20 \\
+                   30   
+                   \end {pmatrix} = \begin {pmatrix}
+                                      14 \\
+                                      25 \\
+                                      36
+                                      \end {pmatrix}$$
+
+- 벡터의 덧셈은 동일한 차원을 갖는 벡터끼리만 가능
+- 뺄셈도 같은 원리
+
+```python
+v = np.array([4, 5, 6])
+w = np.array([10, 20, 30])
+u = np.array([0, 3, 6, 9])
+
+vw = v + w
+uw = u + w #이 코드는 오류 발생. 차원이 다르기 때문
+```
+
+- 방향이 다른 경우
+
+$$\begin {pmatrix}
+  4 \\
+  5 \\
+  6
+  \end {pmatrix} + \begin {pmatrix}
+                    10 & 20 & 30
+                    \end {pmatrix}$$
+
+```python
+rv = np.array([[4], [5], [6]])
+cv = np.array([[10, 20, 30]])
+rvcv = rv + cv
+print(rvcv)
+```
+
+![코드실행결과](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/73f3cd71-05d0-4ce4-a19a-5224de038442)
+
+- 벡터 방향이 다른 경우 브로드캐스팅 연산 수행
+- 일반적인 덧셈 연산과는 다름
+- 벡터 방향은 중요함
+
+### 벡터의 덧셈과 뺄셈의 기하학적 해석
+![vector_plus](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/2b5465c9-8003-4b40-b439-f3414eaceaef)
+
+![vector_plus2](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/142f7da7-07f0-4819-a2d1-464bfcb7749b)
+
+![vector_minus](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/3808c437-14e5-4c2f-9b07-0e101e06fc6c)
+
+- 두 벡터를 기하학적으로 더할 때 한 벡터의 꼬리와 다른 벡터의 머리를 연결
+- 더한 결과 : 첫 번째 벡터의 고리와 두 번째 벡터의 머리를 이은 선
+- 벡터의 뺄셈
+  - 벡터의 꼬리들을 같은 좌표에 둠
+  - 뺀 결과의 벡터는 두 번째 벡터의 머리에서 첫 번째 벡터의 머리로 가는 선
+  - 직교벡터 분해의 기초
+
+### 스칼라-벡터 곱셈
+- 스칼라 : 벡터나 행렬에 포함된 숫자가 아닌 수 그 자체
+- $$\alpha, \lambda $$ 와 같은그리스어 소문자로 나타냄
+- 스칼라 벡터 곱셈
+$$\lambda = 4 \, , W = \begin {pmatrix}
+                        9 \\
+                        4 \\
+                        1
+                        \end {pmatrix}
+  \lambda W = \begin {pmatrix}
+              36 \\
+              16 \\
+              4
+              \end {pmatrix} $$
+
+```
+영벡터 : 모든 원소가 0. 볼드체 0으로 표시
+선형대수학에서 특수한 벡터
+영벡터를 사용해 문제를 푸는 건 '자명한 해'라 제외함
+```
+
+- 스칼라-벡터 곱에선 데이터타입이 중요함
+
+```python
+s = 2
+a = [3, 4, 5]
+b = np.array(a)
+print(a*s)
+print(b*s)
+```
+![scalarXvector](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/ab485e6e-b027-410e-a589-07a24b7fc153)
+
+- 리스트에 스칼라를 곱하면 리스트를 스칼라 만큼 반복
+- 넘파이 배열이라면 원소별로 곱셈
+
+### 스칼라-벡터 덧셈
+- 선형대수학에선 불가능
+- 파이썬에선 가능
+  - 스칼라-벡터 곱셈과 유사함
+
+```python
+s = 2
+v = np.array([3, 6])
+print(s + v)
+```
+![scalar+vector](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/0d6fd8d7-b9b8-4c67-b594-4d485111cd14)
+

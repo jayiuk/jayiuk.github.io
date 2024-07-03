@@ -263,3 +263,31 @@ print(s + v)
 ![vector_broadcasting](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/24ba5807-268f-4dc8-8579-cd8e2377cdf8)
 
 - 만약 v가 열벡터고 s가 행벡터면 3X2행렬이 아닌 2X3행렬이 나옴
+
+## 벡터 크기와 단위벡터
+- 벡터의 크기(기하학적 길이 or 노름(norm)) : 벡터의 꼬리부터 머리까지의 거리
+- 표준 유클리드 거리 공식으로 구함
+$$\parallel v \parallel = \sqrt{\sum_{i = 1}^n v_i^2}$$
+
+- 노름은 벡터 양 옆에 이중 수직 막대로 표시
+- 단위벡터 : 기하학적 길이(크기)가 1인 벡터
+  - 여러 응용 분야에서 사용
+    - 직교행렬, 회전행렬, 고유벡터, 특이벡터
+  - $$\parallel v \parallel = 1$$
+    - 단위벡터 정의
+- 
+
+#### 이론에서의 선형대수학과 코드에서 선형대수학 사이 용어 차이
+- 수학 이론에서
+  - 벡터의 차원 : 벡터의 원소 수
+  - 길이 : 기하학적 거리
+- 코드에서
+  - 파이썬 len() : 배열의 차원 반환
+  - np.norm() : 기하학적 길이(크기) 반환
+
+```python
+v = np.array([1, 2, 3, 7, 8, 9])
+v_dim = len(v)
+v_mag = np.linalg.norm(v)
+```
+![diff](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/05d35bd5-865b-4227-b501-0054f7b3e3bf)

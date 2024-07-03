@@ -198,3 +198,65 @@ print(s + v)
 ```
 ![scalar+vector](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/0d6fd8d7-b9b8-4c67-b594-4d485111cd14)
 
+### 스칼라-벡터 곱셈의 기하학적 해석
+
+![scalar-vector](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/a04ba29a-afb3-42dd-884e-fc73733711c0)
+
+![scaler-vector(neg)](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/7944b09a-e4e7-4aab-8f13-96fd26dd0eca)
+
+- 스칼라가 0보다 작으면 방향이 바뀜
+  - 벡터는 원점을 통과해서 양방향의 무한대로 가는 무한히 긴 선을 가리킨다는 해석도 있음
+  - 이 의미에서 회전된 벡터는 여전히 동일한 무한한선
+    - 음의 스칼라가 방향을 바꾼 것이 아님
+- 벡터 덧셈과 스칼라-벡터 곱셈을 이용해 벡터의 평균 구하기 가능
+
+```python
+s = np.array([1, 4, 5, 6])
+v = np.array([2, 5, 10, 9])
+sv = s + v
+avgsv = sv * (1/2)
+print(avgsv)
+```
+
+![avgvector](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/a7182bec-fecd-48be-bf9e-84552344bacf)
+
+### 전치
+- 열벡터를 행벡터로 또는 그 반대로 변환
+
+$$m_{i, j}^T = m_{j, i}$$
+
+$$v^{TT} = v$$
+
+### 파이썬에서 벡터 브로드캐스팅
+- 브로드캐스팅 연산은 현대 컴퓨터 기반 선형대수학에서만 존재
+- 브로드캐스팅 : 한 벡터를 다른 벡터의 각 원소로 연산을 여러 번 반복하는 것
+$$\begin {pmatrix}
+  1 & 1
+  \end {pmatrix} + 
+  \begin {pmatrix}
+  10 & 20
+  \end {pmatrix}\\
+
+  \begin {pmatrix}
+  2 & 2
+  \end {pmatrix} + 
+  \begin {pmatrix}
+  10 & 20
+  \end {pmatrix}\\
+  \begin {pmatrix}
+  3 & 3
+  \end {pmatrix} + 
+  \begin{pmatrix}
+  10 & 20
+  \end {pmatrix}$$
+
+- 이 식의 경우 벡터 [1, 2, 3]의 전치와 [10, 20]의 패턴을 모은 다음 덧셈을 브로드캐스팅하면 하나의 식으로 간결하게 구현 가능
+
+```python
+s = np.array([[1, 2, 3]]).T
+v = np.array([[10, 20]])
+print(s + v)
+```
+![vector_broadcasting](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/24ba5807-268f-4dc8-8579-cd8e2377cdf8)
+
+- 만약 v가 열벡터고 s가 행벡터면 3X2행렬이 아닌 2X3행렬이 나옴

@@ -26,7 +26,7 @@ $$P(w_1, w_2, \dots, w_n) = \prod_{n=1}^n P(w_n|w_1, \dots, w_{n-1})$$
 ### 실제 문장에 적용
 - 문장 'An adorable little boy is spreading smiles'의 확률
 
-$$P(An\; adorable\; little\; boy\; is\; spreading\; smiles) = P(An) \times P(adorable|An) \times P(little|An\; adorable) \times P(boy|An\; adorable\; little) \times \\ P(is|An\; adorable\; little\; boy) \times P(spreading|An\; adorable\; little\; boy\; is) \times P(smiles|An\; adorable\; little\; boy\; is\; spreading)$$
+$$P(An\; adorable\; little\; boy\; is\; spreading\; smiles) = \\ P(An) \times P(adorable|An) \times \\ P(little|An\; adorable) \times P(boy|An\; adorable\; little) \times \\ P(is|An\; adorable\; little\; boy) \times P(spreading|An\; adorable\; little\; boy\; is) \times \\ P(smiles|An\; adorable\; little\; boy\; is\; spreading)$$
 
 ## 카운트 기반의 접근
 - 문장의 확률을 구함 -> 다음 단어에 대한 예측 확률을 곱함

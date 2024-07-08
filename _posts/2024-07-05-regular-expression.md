@@ -4,7 +4,7 @@ layout : post
 categories : NLP, AI
 title : 정규표현식
 tags : [NLP, AI]
-date-string : June 05, 2024
+date-string : July 05, 2024
 ---
 
 # 정규표현식

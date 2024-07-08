@@ -4,7 +4,7 @@ layout : post
 categories : NLP, AI
 title : 정제, 정규화
 tags : [NLP, AI]
-date-string : June 02, 2024
+date-string : July 02, 2024
 ---
 
 # 정제 & 정규화

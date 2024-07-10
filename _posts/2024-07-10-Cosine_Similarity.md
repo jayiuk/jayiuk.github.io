@@ -18,4 +18,4 @@ date-string : July 10, 2024
 
 $$similarity \;=\; cos(\theta) \;=\; \frac{A \cdot B}{\parallel A \parallel \parallel B \parallel} = \\ \frac{\sum_{i = 1}^n A_i \times B_i}{\sqrt{\sum_{i=1}^n (A_i)^2}\times \sqrt{\sum_{i=1}^n (B_i)^2}} $$
 
-[예제는 여기](https://github.com/jayiuk/NLP_Practice)
+[예제는 여기](https://github.com/jayiuk/NLP_Practice/blob/main/basic_nlp_cosine_similarity.ipynb)

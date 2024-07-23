@@ -332,6 +332,7 @@ $$\sigma v^T w$$
 $$a^T(b+c) = a^Tb + a^Tc$$
 
 - 위의 식을 파이썬 코드로 구현
+
 ```python
 a = np.array([0, 1, 2])
 b = np.array([3, 5, 8])

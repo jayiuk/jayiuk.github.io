@@ -291,3 +291,55 @@ v_dim = len(v)
 v_mag = np.linalg.norm(v)
 ```
 ![diff](https://github.com/jayiuk/jayiuk.github.io/assets/58243784/05d35bd5-865b-4227-b501-0054f7b3e3bf)
+
+## 벡터-내적
+- 표기방법
+$$a^Ta$$
+  - 일반적인 표기법
+- 다른 방법
+$$a \cdot b$$
+$$<a, b>$$
+
+- 내적은 하나의 숫자로 두 벡터 사이의 관계를 나타냄
+- 계산 방법
+  - 두 벡터에서 대응되는 원소끼리 곱한 후 모든 결과를 더함
+
+$$\delta = \sum_{i = 1}^n a_ib_i$$
+
+- 동일한 차원의 두 벡터 사이에서만 성립
+
+- 파이썬에서 내적 구현
+
+```python
+v = np.array([1, 2, 3, 4])
+w = np.array([5, 6, 7, 8])
+np.dot(v, w)
+```
+<img width="175" alt="npdot" src="https://github.com/user-attachments/assets/d54f68d9-e4df-4914-8260-3d9292c125be">
+
+- 벡터에 스칼라를 곱하면 내적도 그만큼 커짐
+<img width="107" alt="scalarXvectordot" src="https://github.com/user-attachments/assets/d840e9aa-f880-4f57-9bec-9e3c00ec979d">
+
+$$\sigma v^T w$$
+
+### 내적의 의미
+- 두 벡터 사이의 유사성 또는 매핑
+  - 서로 관련이 클 수록(유사성이 클 수록) 내적은 커짐
+  - 피어슨 상관계수 : 두 변수 사이의 정규화된 내적
+
+### 내적의 분배 법칙
+- 내적에 분배 법칙 적용 가능
+$$a^T(b+c) = a^Tb + a^Tc$$
+
+- 위의 식을 파이썬 코드로 구현
+```python
+a = np.array([0, 1, 2])
+b = np.array([3, 5, 8])
+c = np.array([13, 21, 34])
+
+res1 = np.dot(a, b+c)
+res2 = np.dot(a, b) + np.dot(a, c)
+```
+
+<img width="107" alt="dotplus" src="https://github.com/user-attachments/assets/ed8de754-259b-46fd-9bc2-04713561557f">
+

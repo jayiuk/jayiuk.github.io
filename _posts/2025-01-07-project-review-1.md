@@ -1,3 +1,12 @@
+---
+published : true
+layout : post
+categories : NLP, AI, chatbot
+title : 빌릿 챗봇 프로젝트 1
+tags : [NLP, AI, chatbot]
+date-string : January 7, 2025
+---
+
 # 프로젝트 리뷰 1
 
 ## 금융 서비스 고객상담 챗봇

@@ -62,7 +62,7 @@ date-string : August 12, 2024
 
 
 
-
-[참고자료1](https://www.samsungsds.com/kr/insights/what-is-langchain.html)
-[참고자료2](https://www.samsungsds.com/kr/insights/the-concept-of-langchain.html)
-[참고자료3](https://python.langchain.com/docs/integrations/chat_loaders/langsmith_llm_runs/)
+[참고자료1](https://python.langchain.com/docs/introduction/) \
+[참고자료2](https://www.samsungsds.com/kr/insights/what-is-langchain.html) \
+[참고자료3](https://www.samsungsds.com/kr/insights/the-concept-of-langchain.html) \
+[참고자료4](https://python.langchain.com/docs/integrations/chat_loaders/langsmith_llm_runs/)

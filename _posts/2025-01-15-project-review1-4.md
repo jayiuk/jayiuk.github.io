@@ -4,7 +4,7 @@ layout : post
 categories : NLP, AI, chatbot
 title : 빌릿 챗봇 프로젝트 4
 tags : [NLP, AI, chatbot]
-date-string : January 9, 2025
+date-string : January 15, 2025
 ---
 
 # 챗봇 프로젝트 리뷰 4

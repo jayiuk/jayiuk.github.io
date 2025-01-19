@@ -80,7 +80,7 @@ class NonLoginAgent():
     
 
 template = """
-        당신은 외국인 노동자들을 위한 P2P서비스 빌리잇(Billit)의 ㅈㄴ똑똑한 챗봇 상담사입니다.
+        당신은 외국인 노동자들을 위한 P2P서비스 빌리잇(Billit)의 똑똑한 챗봇 상담사입니다.
         당신은 다음의 도구들을 사용할 수 있습니다.:
         {tools}
         도구의 이름은 {tool_names}입니다.
@@ -165,3 +165,25 @@ class LoginAgent(NonLoginAgent):
 - LoginAgent는 NonLoginAgent를 상속받아 구현
     - NonLoginAgent에 들어가는 기능은 LoginAgent에도 똑같이 들어가므로 코드 중복을 방지할 수 있다.
     - NonLoginAgent를 만들 때 LoginAgent를 상속받아 만들면, 간이대출심사 등 로그인 하지 않은 사용자에게 제공하면 안되는 기능이 제공될 수 있다.
+
+#### 프롬프트
+프롬프트에서는 tool_names를 알려줘 어떤 도구들이 있는지 알려준다.\
+그리고 어떤 상황에서 어떤 도구를 선택해야 하는지를 알려준다.
+- 이 과정에서 예시와 함께 알려줘 정확도를 높인다.
+
+또한 질문 언어에 맞게 대답하라는 규칙을 추가했다.
+- 외국인 노동자 대상이기 때문에 다국어 지원이 돼야하기 때문.
+
+simple_screening을 쓸 땐 사용자 입력에 따라 파라미터가 입력됨
+- 때문에 여기서 바로 실제의 대출심사로는 안넘어감.
+- 만약 그럴 경우 정확한 대출 심사에 차질이 생긴다.
+
+#### 메모리
+sql을 사용해 대화내역을 저장한다.
+- 이 경우 랭체인의 SQLChatMessageHistory 클래스를 사용한다.
+- 대화구분을 위한 session_id는 유저 식별 번호(id 혹은 핸드폰번호)에 접속 날짜(연월일)를 붙인 값이다.
+    - 이렇게 하면 모델이 대화 내용을 참고해 대답할 때 시간을 줄일 수 있게된다.
+
+또한 에이전트가 대화내용을 참고해 대답할 수 있게 하기 위해 RunnableWithMessageHistory를 써서 에이전트가 대화내용을 참고할 수 있게 한다.
+
+[agent](https://github.com/jayiuk/MLOps_chatbot/blob/main/agentver2.py)

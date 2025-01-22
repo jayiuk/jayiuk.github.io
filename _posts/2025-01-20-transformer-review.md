@@ -36,5 +36,5 @@ Introduction에선 기존의 순환신경망을 이용한 모델의 단점과 �
 하지만 순차적인 계산을 강제하는 문제는 해결하지 못했다.
 - factorization tricks는 행렬 분해를 사용한 LSTM 기법이다.
     - [factorization](https://arxiv.org/abs/1703.10722) 에 따르면 기존의 LSTMP셀 계산의 주요한 부분은 아핀 변환된 T를 계산하는 것이다.
-    - affine transformT는 $$T = W * [x_t, h_{t-1}] + b$$ 으로 계산된다. 여기서 W는 $$4n \mul 2p$$인 행렬이다.
+    - affine transformT는 $$T = W * [x_t, h_{t-1}] + b$$ 으로 계산된다. 여기서 W는 $$4n \times 2p$$인 행렬이다.
     - 즉 T에 대한 계산은 행렬 W에 대한 곱셉을 포함하기 때문

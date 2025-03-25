@@ -45,4 +45,15 @@ Introduction에선 기존의 순환신경망을 이용한 모델의 단점과 �
 어텐션 메카니즘은 인풋 혹은 아웃풋에서 거리(순환신경망은 순서대로 입력되고 출력이 됨.)에 대해 덜 신경쓰게 해줬다.\
 그러나 일부를 제외하면 기존 순환신경망의 보조 역할만 했다.\
 그래서 오직 어텐션으로 모델링을 했다.\
-이게 Introduction의 내용이다.
+이게 Introduction의 내용이다.\
+
+(결국 LLM은 학습한 데이터를 바탕으로 입력과 가장 유사한 매트릭스를 생성하는 것.)
+## Background
+
+이 챕터는 이전 연구들의 한계점에 대해 다루고 있다.\
+이전 연구들과는 합성곱 신경망 혹은 RNN을 쓰지 않고 오직 self-attention을 사용해서만 모델링을 했다는것.
+
+## Model Architecture
+![attention](https://github.com/user-attachments/assets/083d3233-91ff-43f9-8647-bdc19f14edd8)
+
+- 왼쪽이 인코더, 오른쪽이 디코더다.

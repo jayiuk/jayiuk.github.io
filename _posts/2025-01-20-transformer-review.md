@@ -57,3 +57,19 @@ Introduction에선 기존의 순환신경망을 이용한 모델의 단점과 �
 ![attention](https://github.com/user-attachments/assets/083d3233-91ff-43f9-8647-bdc19f14edd8)
 
 - 왼쪽이 인코더, 오른쪽이 디코더다.
+- 인코더
+    - 인코더는 2가지의 서브레이어로 구성됨
+        - multi-head self-attention mechanism, fully connected feed forward network로 구성됨
+        - 각 서브레이어들은 residual connection을 적용, 그 후 레이어 정규화
+            - 이를 수식으로 쓰면 $$LayerNorm(x + Sublayer(x))$$이다.
+            - Sublayer(x)는 그 서브레이어에서 구현된 함수.
+            - residual connection을 위해선 모든 차원이 동일해야 함. 그래서 여기선 $$d_{model}=512$$로 맞춤
+                - residual connection은 위의 식처럼 서브레이어의 출력(Sublayer(x))과 입력(x)의 차원이 같아야 덧셈이 가능함
+                - 그러므로 임베딩 레이어를 포함한 모든 레이어의 출력 차원이 512로 맞춰져있어야됨
+- 디코더
+    - 기본적으로 인코더와 유사하다. 하지만 차이점은 있다.
+        - 디코더는 서브레이어가 하나 더 있다.
+            - 인코더의 결과를 포함해 attention을 수행하는 레이어가 하나 더 있음.
+        - multi-head self-attention 레이어를 수정해 마스킹을 함.
+            - 이 마스킹은 디코더가 i번째를 예측할 때 그 이후의 값을 참고하지 못하도록 함
+                - 즉 i번째 예측을 위해 i-1까지만 보게함. i+1부터는 못보게 만들었다.

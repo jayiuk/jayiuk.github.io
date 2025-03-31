@@ -73,3 +73,9 @@ Introduction에선 기존의 순환신경망을 이용한 모델의 단점과 �
         - multi-head self-attention 레이어를 수정해 마스킹을 함.
             - 이 마스킹은 디코더가 i번째를 예측할 때 그 이후의 값을 참고하지 못하도록 함
                 - 즉 i번째 예측을 위해 i-1까지만 보게함. i+1부터는 못보게 만들었다.
+
+- Attention
+attention함수는 query와 key-value쌍을 아웃풋으로 매핑하는 것으로 표현됨(query, key, value, output 모두 벡터)\
+output은 value의 가중합으로 계산되고, value의 가중치는 query와 그에 상응하는 key와의 compatibility function을 통해 계산됨.\
+![Image](https://github.com/user-attachments/assets/b66f2dfe-d36c-444f-94a8-ffca65e5b8e0)
+- 이 그림을 보면 scaled dot-product attention에서 Q, K가 연산을 거쳐 나온 결과와 V가 행렬 곱셈을 함.

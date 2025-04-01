@@ -78,4 +78,15 @@ Introduction에선 기존의 순환신경망을 이용한 모델의 단점과 �
 attention함수는 query와 key-value쌍을 아웃풋으로 매핑하는 것으로 표현됨(query, key, value, output 모두 벡터)\
 output은 value의 가중합으로 계산되고, value의 가중치는 query와 그에 상응하는 key와의 compatibility function을 통해 계산됨.\
 ![Image](https://github.com/user-attachments/assets/b66f2dfe-d36c-444f-94a8-ffca65e5b8e0)
-- 이 그림을 보면 scaled dot-product attention에서 Q, K가 연산을 거쳐 나온 결과와 V가 행렬 곱셈을 함.
+
+    - 이 그림을 보면 scaled dot-product attention에서 Q, K가 연산을 거쳐 나온 결과와 V가 행렬 곱셈을 함.
+
+- Scaled Dot-Product Attention
+$$Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d_k}})V$$
+    - dk는 Q와 K의 차원
+    - 여기서 입력은 dk차원인 Q, K 그리고 dv차원인 V로 구성됨.
+    - 쿼리는 Q벡터로, key는 K벡터로, value는 V벡터로 각각 뭉친다.
+    - 여기서 dot-product attention을 사용한 이유는 additive attention보다 빠르고 효율적이기 때문
+        - additive attention은 가중치 학습이 필요하기 때문
+    - $$\sqrt{d_k}$$를 해주는 이유는 기울기 소실 문제를 해결하기 위해서다.
+        - 차원이 커지면 softmax 함수 특성상 기울기가 사라지는 영역으로 갈 수 있다. 이를 방지하기 위해 스케일링을 해준것.

@@ -96,4 +96,10 @@ $$MultiHead(Q, K, V) = Concat(head_1, \dots , head_h)W^O \\ where\ head_i = Atte
 $$W^Q_i \in R^{d_{model} \times d_k} \, , W^K_i \in R^{d_{model} \times d_k} \, , W^V_i \in R^{d_{model \times d_v}} \, , W^O \in R^{hd_v \times d_{model}}$$
 
     - 이 수식을 보면 Multi-Head Attention은 attention을 h번한 후 이를 합친 것이다.
-    - 
+    - 이런 방식을 사용하면 한번에 다양한 곳에 어텐션을 수행 가능.
+    - 이는 동시에 여러 정보를 취합할 수 있고, 각 토큰의 유사성, 종속성을 동시에 파악할 수 있게 해준다.
+    - 또한 이 논문에선 $$d_k = d_v = d_{model} / h = 64 /, (h = 8)$$을 사용
+        - 이 방식을 사용하면 각각의 헤드의 차원을 줄여준다. 이는 전체 계산의 비용을 크게 감소해줌.
+        - 전체 차원에 대한 single-head attention과 비슷해진다.
+
+

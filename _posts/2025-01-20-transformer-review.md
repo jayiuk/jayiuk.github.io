@@ -90,3 +90,10 @@ $$Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d_k}})V$$
         - additive attention은 가중치 학습이 필요하기 때문
     - $$\sqrt{d_k}$$를 해주는 이유는 기울기 소실 문제를 해결하기 위해서다.
         - 차원이 커지면 softmax 함수 특성상 기울기가 사라지는 영역으로 갈 수 있다. 이를 방지하기 위해 스케일링을 해준것.
+
+- Multi-Head Attention
+$$MultiHead(Q, K, V) = Concat(head_1, \dots , head_h)W^O \\ where\ head_i = Attention(QW^Q_i, KW^K_i, VW^V_i)$$
+$$W^Q_i \in R^{d_{model} \times d_k} \, , W^K_i \in R^{d_{model} \times d_k} \, , W^V_i \in R^{d_{model \times d_v}} \, , W^O \in R^{hd_v \times d_{model}}$$
+
+    - 이 수식을 보면 Multi-Head Attention은 attention을 h번한 후 이를 합친 것이다.
+    - 

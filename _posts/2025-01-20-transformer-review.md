@@ -88,8 +88,8 @@ $$Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d_k}})V$$
     - 쿼리는 Q벡터로, key는 K벡터로, value는 V벡터로 각각 뭉친다.
     - 여기서 dot-product attention을 사용한 이유는 additive attention보다 빠르고 효율적이기 때문
         - additive attention은 가중치 학습이 필요하기 때문
-    - $$\sqrt{d_k}$$를 해주는 이유는 기울기 소실 문제를 해결하기 위해서다.
-        - 차원이 커지면 softmax 함수 특성상 기울기가 사라지는 영역으로 갈 수 있다. 이를 방지하기 위해 스케일링을 해준것.
+    - $$\sqrt{d_k}$$를 해주는 이유는 특정 값에 대해만 집중되는 것을 방지해주기 위해서다다
+        - 차원이 커지면 softmax 함수 특성상 특정 값에 대해서만 치중되는 경우가 생긴다. 이를 방지해주기 위해 스케일링을 해줌.
 
 - Multi-Head Attention
 $$MultiHead(Q, K, V) = Concat(head_1, \dots , head_h)W^O \\ where\ head_i = Attention(QW^Q_i, KW^K_i, VW^V_i)$$

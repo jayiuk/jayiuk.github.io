@@ -90,6 +90,7 @@ $$Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d_k}})V$$
         - additive attention은 가중치 학습이 필요하기 때문
     - $$\sqrt{d_k}$$를 해주는 이유는 특정 값에 대해만 집중되는 것을 방지해주기 위해서다다
         - 차원이 커지면 softmax 함수 특성상 특정 값에 대해서만 치중되는 경우가 생긴다. 이를 방지해주기 위해 스케일링을 해줌.
+        - 다른 함수들은 확률분포 생성에 적합하지 않다.
 
 - Multi-Head Attention
 $$MultiHead(Q, K, V) = Concat(head_1, \dots , head_h)W^O \\ where\ head_i = Attention(QW^Q_i, KW^K_i, VW^V_i)$$
@@ -103,3 +104,4 @@ $$W^Q_i \in R^{d_{model} \times d_k} \, , W^K_i \in R^{d_{model} \times d_k} \, 
         - 전체 차원에 대한 single-head attention과 비슷해진다.
 
 
+- Position-wise Feed-Forward Networks

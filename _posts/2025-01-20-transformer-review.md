@@ -105,3 +105,13 @@ $$W^Q_i \in R^{d_{model} \times d_k} \, , W^K_i \in R^{d_{model} \times d_k} \, 
 
 
 - Position-wise Feed-Forward Networks
+
+$$FFN(x) = max(0, xW_1 + b_1)W_2 + b_2$$
+$$W_1 \in R^{d_{model} \times d_{ff}} ,\ W_2 \in R^{d_{ff} \times d_{model}}$$
+
+    - 이 서브레이어는 어텐션을 거쳐 나온 행렬을 정제해주는 역할
+    - ReLU함수를 써서 비선형성을 추가
+    - 이 서브레이어는 각각의 위치마다 동일하게 작용함
+    - 이 서브레이어에선 차원이 $$d_{ff}$$ 만큼 늘어났다가 다시 $$d_{model}$$로 차원이 다시 돌아온다.
+        - 이런 변형을 통해 비선형성을 추가해 표현력을 높여준다.
+        - 이 논문에선 $$d_{ff}$$를 2048로 했다. $$d_{model}$$보다 더 높은 차원을 가진다.

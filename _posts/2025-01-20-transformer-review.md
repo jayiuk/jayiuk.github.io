@@ -135,3 +135,16 @@ $$W_1 \in R^{d_{model} \times d_{ff}} ,\ W_2 \in R^{d_{ff} \times d_{model}}$$
                 - 같은 가중치를 공유하면 파라미터 수가 줄어든다.
                 - 이는 학습 효율성이 올라가고, 오버피팅을 방지할 수 있다.
     
+- Positional Encoding
+    - 회귀 혹은 합성곱 레이어가 없다.
+    - 그러므로 상대적 혹은 절대적 순서, 위치 정보를 따로 주입해야 한다.
+    - 그러므로 인코더, 디코더 각각의 밑에 위치 정보를 구해 추가해줄 positional encoding을 추가.
+    - positional encoding의 차원은 $$d_{model}$$이다.
+        - 그래야 임베딩과 합쳐질 수 있기 때문.
+    - 이 논문에선 sin, cos 함수를 사용한다.
+
+    $$PE_{(pos, 2i)} = sin(pos/10000^{2i/d_{model}}) \\
+      PE_{(pos, 2i+1)} = cos(pos/10000^{21/d_{model}})$$
+
+    
+    - 
